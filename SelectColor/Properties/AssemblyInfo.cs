@@ -9,7 +9,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SelectColor")]
 [assembly: AssemblyProduct("SelectColor")]
-[assembly: AssemblyCopyright("Copyright © 2026")]
+[assembly: AssemblyCopyright("Copyright © Simplan 2026")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,5 +20,5 @@ using System.Windows;
     ResourceDictionaryLocation.SourceAssembly
 )]
 
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("2.0.0.0")]
+[assembly: AssemblyFileVersion("2.0.0.0")]
