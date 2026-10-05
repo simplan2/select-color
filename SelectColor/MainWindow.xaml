@@ -4,18 +4,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="SelectColor"
     Width="560"
-    Height="640"
+    Height="650"
     MinWidth="560"
     MinHeight="480"
-    Background="#131313"
+    Background="#0F1011"
     TextOptions.TextFormattingMode="Display"
     UseLayoutRounding="True"
     WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <!--  Paleta neutra: sin tinte azulado para no interferir con la percepcion del color  -->
-        <SolidColorBrush x:Key="BgBrush" Color="#0F0F05" />
-        <SolidColorBrush x:Key="CardBrush" Color="#1A1A1C" />
-        <SolidColorBrush x:Key="LineBrush" Color="#2A2A2C" />
+        <SolidColorBrush x:Key="BgBrush" Color="#0F1011" />
+        <SolidColorBrush x:Key="CardBrush" Color="#17181D" />
+        <SolidColorBrush x:Key="LineBrush" Color="#282A2E" />
         <SolidColorBrush x:Key="LineSoftBrush" Color="#222224" />
         <SolidColorBrush x:Key="TextBrush" Color="#F2F2F2" />
         <SolidColorBrush x:Key="TextDimBrush" Color="#A2A4A6" />
@@ -31,8 +31,8 @@
         <SolidColorBrush x:Key="Sky" Color="#6BAEE8" />
 
         <LinearGradientBrush x:Key="bg_degrade" StartPoint="0,0" EndPoint="0,1">
-            <GradientStop Offset="0.0" Color="#1C1D1E" />
-            <GradientStop Offset="1.0" Color="#1C1D1E" />
+            <GradientStop Offset="0.0" Color="#1C1D20" />
+            <GradientStop Offset="1.0" Color="#181A1F" />
         </LinearGradientBrush>
 
         <Style x:Key="TitleText" TargetType="TextBlock">
@@ -41,14 +41,14 @@
             <Setter Property="FontWeight" Value="SemiBold" />
             <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
         </Style>
-              
+
         <Style x:Key="LabelText" TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Segoe UI" />
             <Setter Property="FontSize" Value="11" />
             <Setter Property="FontWeight" Value="SemiBold" />
             <Setter Property="Foreground" Value="{StaticResource TextDimBrush}" />
         </Style>
-        
+
         <Style x:Key="HintText" TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Segoe UI" />
             <Setter Property="FontSize" Value="10" />
@@ -88,7 +88,7 @@
                         <Border
                             x:Name="Bd"
                             Background="{TemplateBinding Background}"
-                            BorderBrush="#4E4E50"
+                            BorderBrush="#4A4C50"
                             BorderThickness="1"
                             CornerRadius="6">
                             <ContentPresenter
@@ -127,7 +127,7 @@
                         <Border
                             x:Name="Bd"
                             Background="{TemplateBinding Background}"
-                            BorderBrush="#4A4A4A"
+                            BorderBrush="#4A4C50"
                             BorderThickness="1"
                             CornerRadius="6">
                             <ContentPresenter
@@ -137,8 +137,8 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Bd" Property="Background" Value="#454545" />
-                                <Setter TargetName="Bd" Property="BorderBrush" Value="#6A6A6A" />
+                                <Setter TargetName="Bd" Property="Background" Value="#404245" />
+                                <Setter TargetName="Bd" Property="BorderBrush" Value="#64666A" />
                             </Trigger>
                             <Trigger Property="IsPressed" Value="True">
                                 <Setter TargetName="Bd" Property="Background" Value="#2A2A2A" />
@@ -258,16 +258,21 @@
                 <Border.Background>
                     <SolidColorBrush x:Name="ColorPreviewBrush" Color="#FFFFFF" />
                 </Border.Background>
-                <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Border
-                        x:Name="PreviewOverlay" Width="80" Height="24" Opacity="0.6"
+                        x:Name="PreviewOverlay"
+                        Width="80"
+                        Height="24"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Background="#B3000000"
-                        CornerRadius="6" />
+                        CornerRadius="6"
+                        Opacity="0.6" />
                     <TextBlock
                         x:Name="PreviewLabel"
-                        FontFamily="Consolas" HorizontalAlignment="Center" VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontFamily="Consolas"
                         FontSize="15"
                         FontWeight="Bold"
                         Foreground="#FFFFFF"
@@ -294,8 +299,8 @@
                             x:Name="HexValue"
                             Grid.Column="1"
                             HorizontalAlignment="Right"
-                            Style="{StaticResource ValueText}"
                             Foreground="{StaticResource Amber}"
+                            Style="{StaticResource ValueText}"
                             Text="#FFFFFF" />
                     </Grid>
                 </Border>
@@ -318,8 +323,8 @@
                             Grid.Column="1"
                             HorizontalAlignment="Right"
                             FontSize="12"
-                            Style="{StaticResource ValueText}"
                             Foreground="{StaticResource Rose}"
+                            Style="{StaticResource ValueText}"
                             Text="255, 255, 255" />
                     </Grid>
                 </Border>
@@ -342,8 +347,8 @@
                             Grid.Column="1"
                             HorizontalAlignment="Right"
                             FontSize="12"
-                            Style="{StaticResource ValueText}"
                             Foreground="{StaticResource Violet}"
+                            Style="{StaticResource ValueText}"
                             Text="0, 0%, 100%" />
                     </Grid>
                 </Border>
@@ -358,52 +363,71 @@
             <StackPanel>
                 <Border Margin="0,0,0,12" Style="{StaticResource Card}">
                     <StackPanel>
-                        <DockPanel Margin="0,0,0,8">
-                            <TextBlock
-                                VerticalAlignment="Center"
-                                FontFamily="Segoe UI"
-                                FontSize="11"
-                                FontWeight="SemiBold"
-                                Style="{StaticResource LabelText}"
-                                Text="CÓDIGO HEX" />
-                            
-                            <!-- Botones Copiar/Pegar -->
-                            <StackPanel
-                                HorizontalAlignment="Right"
-                                DockPanel.Dock="Right"
-                                Orientation="Horizontal">
-                                <Button
-                                    Width="130"
-                                    Margin="0,0,8,0"
-                                    Padding="12,0"
-                                    Click="CopyHex_Click"
-                                    Content="Copiar"
-                                    Style="{StaticResource GhostButton}" />
-                                <Button
-                                    x:Name="PasteHexBtn"
-                                    Width="130"
-                                    Padding="12,0"
-                                    Click="PasteHex_Click"
-                                    Content="Pegar"
-                                    Style="{StaticResource GhostButton}" />
-                            </StackPanel>
-                        </DockPanel>
-                        <DockPanel>
-                            <TextBlock
-                                Margin="0,0,8,0"
-                                VerticalAlignment="Center"
-                                FontFamily="Consolas"
-                                FontSize="17"
-                                FontWeight="Bold"
-                                Foreground="{StaticResource Amber}"
-                                Text="#" />
-                            <TextBox
-                                x:Name="HexTextBox"
-                                PreviewTextInput="HexTextBox_PreviewTextInput"
-                                Style="{StaticResource AppTextBox}"
-                                Text="#FFFFFF"
-                                TextChanged="HexTextBox_TextChanged" />
-                        </DockPanel>
+                        <Grid HorizontalAlignment="Stretch">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="10" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Grid HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    FontFamily="Segoe UI"
+                                    FontSize="11"
+                                    FontWeight="SemiBold"
+                                    Style="{StaticResource LabelText}"
+                                    Text="CÓDIGO HEX" />
+
+                                <!--  Botones Copiar/Pegar  -->
+                                <StackPanel
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Right"
+                                    DockPanel.Dock="Right"
+                                    Orientation="Horizontal">
+                                    <CheckBox
+                                        x:Name="chkIncludeHash"
+                                        Margin="0,0"
+                                        VerticalAlignment="Center"
+                                        Content="Incluir #"
+                                        Foreground="White" />
+                                    <Button
+                                        Width="130"
+                                        Margin="10,0,10,0"
+                                        Padding="12,0"
+                                        Click="CopyHex_Click"
+                                        Content="Copiar"
+                                        Style="{StaticResource GhostButton}" />
+                                    <Button
+                                        x:Name="PasteHexBtn"
+                                        Width="130"
+                                        Padding="12,0"
+                                        Click="PasteHex_Click"
+                                        Content="Pegar"
+                                        Style="{StaticResource GhostButton}" />
+
+                                </StackPanel>
+
+                            </Grid>
+
+                            <DockPanel Grid.Row="2">
+                                <TextBlock Foreground="Orange" Text="#" VerticalAlignment="Center" FontSize="24" Margin="0,0,8,0"/>
+
+                                <TextBox
+                                    x:Name="HexTextBox"
+                                    HorizontalAlignment="Stretch"
+                                    PreviewTextInput="HexTextBox_PreviewTextInput"
+                                    Style="{StaticResource AppTextBox}"
+                                    Text="#FFFFFF"
+                                    TextChanged="HexTextBox_TextChanged" />
+                            </DockPanel>
+
+
+                        </Grid>
                     </StackPanel>
                 </Border>
                 <Border Margin="0,0,0,12" Style="{StaticResource Card}">
@@ -616,8 +640,9 @@
         <!--  Barra de estado  -->
         <Border
             Grid.Row="3"
-            Height="30" VerticalAlignment="Bottom"
+            Height="30"
             Margin="0,14,0,2"
+            VerticalAlignment="Bottom"
             BorderBrush="{StaticResource LineBrush}"
             BorderThickness="0,1,0,0">
             <Grid VerticalAlignment="Bottom">

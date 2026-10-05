@@ -185,7 +185,20 @@ namespace SelectColor
         {
             try
             {
-                Clipboard.SetText(ToHex(_currentColor));
+                var hexValue = ToHex(_currentColor);
+                if(chkIncludeHash.IsChecked == true)
+                {
+                    if (!hexValue.StartsWith("#"))
+                    {
+                        hexValue = "#" + hexValue;
+                    }
+                }
+                else
+                {
+                    hexValue = hexValue.TrimStart('#');
+                }
+
+                Clipboard.SetText(hexValue);
                 ShowFeedback("Copiado " + ToHex(_currentColor) + " al portapapeles", FeedbackKind.Success);
             }
             catch
