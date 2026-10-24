@@ -7,7 +7,7 @@
     Height="650"
     MinWidth="560"
     MinHeight="480"
-    Background="#0F1011"
+    Background="#0D0E0F"
     TextOptions.TextFormattingMode="Display"
     UseLayoutRounding="True"
     WindowStartupLocation="CenterScreen">
@@ -415,7 +415,12 @@
                             </Grid>
 
                             <DockPanel Grid.Row="2">
-                                <TextBlock Foreground="Orange" Text="#" VerticalAlignment="Center" FontSize="24" Margin="0,0,8,0"/>
+                                <TextBlock
+                                    Margin="0,0,8,0"
+                                    VerticalAlignment="Center"
+                                    FontSize="24"
+                                    Foreground="Orange"
+                                    Text="#" />
 
                                 <TextBox
                                     x:Name="HexTextBox"
@@ -474,6 +479,22 @@
                                 Foreground="{StaticResource TextDimBrush}"
                                 Text="ACCIONES" />
                             <Button
+                                x:Name="ColorDialogBtn"
+                                Margin="0,0,0,8"
+                                Click="ColorDialog_Click"
+                                Content="Selector de colores"
+                                Style="{StaticResource ActionButton}">
+                                <Button.Background>
+                                    <SolidColorBrush Color="#282014" />
+                                </Button.Background>
+                                <Button.BorderBrush>
+                                    <SolidColorBrush Color="#6B5330" />
+                                </Button.BorderBrush>
+                                <Button.Foreground>
+                                    <SolidColorBrush Color="#E8C88A" />
+                                </Button.Foreground>
+                            </Button>
+                            <Button
                                 x:Name="EyedropperBtn"
                                 Margin="0,0,0,8"
                                 Click="Eyedropper_Click"
@@ -489,22 +510,7 @@
                                     <SolidColorBrush Color="#7FE0B8" />
                                 </Button.Foreground>
                             </Button>
-                            <Button
-                                x:Name="ColorDialogBtn"
-                                Margin="0,0,0,8"
-                                Click="ColorDialog_Click"
-                                Content="Selector del sistema"
-                                Style="{StaticResource ActionButton}">
-                                <Button.Background>
-                                    <SolidColorBrush Color="#282014" />
-                                </Button.Background>
-                                <Button.BorderBrush>
-                                    <SolidColorBrush Color="#6B5330" />
-                                </Button.BorderBrush>
-                                <Button.Foreground>
-                                    <SolidColorBrush Color="#E8C88A" />
-                                </Button.Foreground>
-                            </Button>
+
                             <Button
                                 x:Name="RandomBtn"
                                 Click="RandomColor_Click"
